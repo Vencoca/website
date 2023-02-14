@@ -981,17 +981,8 @@ service_button.addEventListener("click", (e) => {
 });
 
 
-/*
-gsap.to(".smooth-wrapper",{
-    marginTop: 80,
-    scrollTrigger: {
-        trigger: ".second_nav_wrap",
-        start: "bottom-=80 bottom-=200",
-        end: "bottom-=80 bottom-=360",
-        scrub: 1,
-        markers:true
-    }
-}); */
+
+
 const nav_services = document.querySelector(".service_menu_fixed");
 const service_menu = document.querySelector(".service_menu");
 const wrapper = document.getElementById("smooth-wrapper");
@@ -1004,6 +995,7 @@ function swapelements(condition) {
         nav_services.style.opacity = "100";
         second_nav_wrap.style.paddingTop = "0px";
         wrapper.style.marginTop = "200px";
+        hide_tween.invalidate();
     } else {
         service_menu.style.maxHeight="none";
         nav_services.style.opacity = "0";
@@ -1012,66 +1004,63 @@ function swapelements(condition) {
     }
 }
 
-gsap.to(".service_box",{
+const hide_tween = gsap.to(".smooth-wrapper",{
+    marginTop: 80,
+    onComplete: () => gsap.set(".service_menu_fixed",{opacity: 0}),
+    scrollTrigger: {
+        trigger: ".second_nav_wrap",
+        start: "bottom-=80 bottom-=200",
+        end: "bottom-=80 bottom-=360",
+        scrub: true,
+        onEnterBack: () => gsap.set(".service_menu_fixed",{opacity: 100})
+    }
+});
+
+const contentWrapTl = gsap.timeline({
+    duration: 1,
+    onComplete: () => swapelements(true),
+    scrollTrigger: {
+        trigger: ".service_menu",
+        start: "bottom bottom-=80",
+        end: "top-=80 top",
+        scrub: true,
+        invalidateOnRefresh: true, 
+        onEnterBack: () => swapelements(false),
+    }
+})
+
+contentWrapTl.to(".service_box",{
     height: 120,
     width: '50%',
-    scrollTrigger: {
-        trigger: ".service_menu",
-        start: "bottom bottom-=80",
-        end: "top-=80 top",
-        scrub: 1,
-        invalidateOnRefresh: true,
-        onLeave: () => swapelements(true),
-        onEnterBack: () => swapelements(false),
-        
-    }
-});
+    duration: 1,
+},"<");
 
-gsap.to(".content-wrap-left",{
-    right: () => nav_container.offsetWidth/2 - 272,
-    scrollTrigger: {
-        trigger: ".service_menu",
-        start: "bottom bottom-=80",
-        end: "top-=80 top",
-        scrub: 1,
-        invalidateOnRefresh: true, 
-    }
-});
+contentWrapTl.to(".content-wrap-left",{
+    right: () => nav_container.offsetWidth/2 - 272*3/2,
+    duration: 1,
+},"<");
 
-gsap.to(".content-wrap",{
-    top: 34,
-    scrollTrigger: {
-        trigger: ".service_menu",
-        start: "bottom bottom-=80",
-        end: "top-=80 top",
-        scrub: 1,  
-    }
-});
-
+contentWrapTl.fromTo(".content-wrap",{
+    top: "50%",
+    }, {
+    top: "34px",
+    duration: 1,
+    ease: "circ.out",
+}, "<")
 
 //Change of font
-gsap.to(".service_header",{
-    fontSize: 32,
-    scrollTrigger: {
-        trigger: ".service_menu",
-        start: "bottom bottom-=80",
-        end: "top-=80 top",
-        scrub: 1,
-    }
-});
+contentWrapTl.to(".service_text",{
+    scale:0.6666,
+    duration: 1,
+}, "<");
 
 //Hide show more
-gsap.to(".show_more",{
+contentWrapTl.to(".show_more",{
     opacity:0,
     height: 0,
     marginBottom:0,
-    scrollTrigger:{
-        trigger: ".service_menu",
-        start: "bottom bottom-=80",
-        end: "top-=240 top",
-        scrub: 1,  
-    }
-});
+    duration: 0.3,
+},"<");
 const button1 = document.getElementById("where_first_button");
 const button2 = document.getElementById("where_second_button");
 
