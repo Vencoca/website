@@ -20,7 +20,7 @@
 <body>
 
 	<section class="background">
-		<video src="images/content/background.mp4" autoplay loop playsinline muted></video>
+		<video src="images/content/loop.mp4" autoplay loop playsinline muted></video>
 	</section>
 
 	<section class="fixed">
@@ -36,22 +36,25 @@
 				</div>
 				<div class="services_nav">
 					<img src="@/../images/bg/down_button.svg" alt="Šipka dolů">
-					<p>Služby
-					<p>
+					<div class="nav-language-wrap">
+						<p class="language_toggle">Služby</p>
+						<p class="language_toggle en_language">Services</p>
+					</div>
 				</div>
 			</div>
 			<div class="cta">
-				Napište nám
+				<p class="language_toggle">Napište nám</p>
+				<p class="language_toggle en_language">Write us</p>
 			</div>
 		</header>
 		<div class="service_menu_fixed">
-			<div class="service_box_fixed left">
+			<div class="service_box_fixed left service_hover">
 				<div class="text">
 					<h1 class="service_header_fixed">Sales</h1>
 					<h2 class="service_header_fixed">Engineering</h2>
 				</div>
 			</div>
-			<div class="service_box_fixed right notactive">
+			<div class="service_box_fixed right notactive service_hover">
 				<div class="text">
 					<h1 class="service_header_fixed">Resident</h1>
 					<h2 class="service_header_fixed">Engineering</h2>
@@ -65,31 +68,62 @@
 				<div class="container">
 					<div class="fifty">
 						<div class="big_text">
-							<p><span>Zastupujeme</span><br>výrobní<br>společnosti</p>
+							<div class="hero__wrap">
+								<div class="hero__wrap__content">
+									<p class="language_toggle"><span>Zastupujeme</span></p>
+									<p class="language_toggle en_language"><span>We represent</span></p>
+								</div>
+							</div>
+							<div class="hero__wrap">
+								<div class="hero__wrap__content">
+									<p class="language_toggle">výrobní</p>
+									<p class="language_toggle en_language">manufacturing</p>
+								</div>
+							</div>
+							<div class="hero__wrap">
+								<div class="hero__wrap__content">
+									<p class="language_toggle">společnosti</p>
+									<p class="language_toggle en_language">companies</p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="fifty right">
 						<div class="numbers">
-							<div class="first">
-								<img src="@/../images/bg/20_plus.svg" alt="20 plus">
-								<p>dlouhodobých<br>klientů</p>
+							<div class="hero__first">
+								<div class="hero__wrap">
+									<div class="hero__wrap__content">
+										<img src="@/../images/bg/20_plus.svg" alt="20 plus">
+										<div class="hero-language-wrap">
+											<p class="language_toggle">dlouhodobých<br>klientů</p>
+											<p class="language_toggle en_language">long-term<br>clients</p>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="second">
-								<img src="@/../images/bg/10_plus.svg" alt="10 plus">
-								<p>let<br>na trhu</p>
+							<div class="hero__second">
+								<div class="hero__wrap">
+									<div class="hero__wrap__content">
+										<img src="@/../images/bg/10_plus.svg" alt="10 plus">
+										<div class="hero-language-wrap">
+											<p class="language_toggle">let<br>na trhu</p>
+											<p class="language_toggle en_language">years<br>on the market</p>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<div id="second_nav_wrap" class="second_nav_wrap">
-				<section class="service">
+			<section class="service">
+				<div class="service__content">
 					<div class="header container">
-						<h1>Naše</h1>
-						<h2>služby</h2>
+						<p class="language_toggle">Naše <span>služby</span></p>
+						<p class="language_toggle en_language">Our <span>services</span></p>
 					</div>
 					<div class="service_menu">
-						<div class="service_box left">
+						<div class="service_box left service_hover">
 							<div class="content-wrap content-wrap-left">
 								<div class="service_text">
 									<h1 class="service_header ">Sales</h1>
@@ -106,11 +140,14 @@
 											</linearGradient>
 										</defs>
 									</svg>
-									<p>Zobrazit více</p>
+									<div class="service-language-wrap">
+										<p class="language_toggle">Zobrazit více</p>
+										<p class="language_toggle en_language">Show more</p>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="service_box right notactive">
+						<div class="service_box right notactive service_hover">
 							<div class="content-wrap">
 								<div class="service_text">
 									<h1 class="service_header ">Resident</h1>
@@ -121,123 +158,224 @@
 										<circle cx="16" cy="16.5" r="16" fill="url(#paint0_linear_228_306)" />
 										<path d="M12.25 13.6001L16.5 17.8501L20.75 13.6001L22.45 14.4501L16.5 20.4001L10.55 14.4501L12.25 13.6001Z" fill="white" />
 									</svg>
-									<p>Zobrazit více</p>
+									<div class="service-language-wrap">
+										<p class="language_toggle">Zobrazit více</p>
+										<p class="language_toggle en_language">Show more</p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-				<section class="bigtext">
-					<div class="bigtext_container container">
-						<p><span>Prodáváme vaše<br> výrobky,</span> jako bychom <br>je vyrobili sami.</p>
+				</div>
+			</section>
+			<section class="bigtext">
+				<div class="bigtext_container container">
+					<div class="swap-wrapper">
+						<p class="service_toggle language_toggle"><span>Prodáváme vaše</span><br><span>výrobky,</span> jako bychom <br>je vyrobili sami.</p>
+						<p class="service_toggle untoggled_service language_toggle"><span>Bojujeme za vaše</span><br>dobré jméno.</p>
+						<p class="service_toggle language_toggle en_language"><span>We sell your products</span><br>as if we made them<br> ourselves.</p>
+						<p class="service_toggle untoggled_service language_toggle en_language"><span>We fight for your</span><br>good name.</p>
 					</div>
-				</section>
-				<section class="video">
-					<div class="container">
-						<img src="@/../images/bg/play_button.svg" alt="Play video button">
+				</div>
+			</section>
+			<section class="video">
+				<div class="container" id="video">
+					<img src="@/../images/bg/play_button.svg" alt="Play video button"></img>
+					<iframe id="ytplayer" type="text/html" width="1330" height="748.125" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&fs=0&modestbranding=1&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
+					<div class="video_square">
+						<div class="video_circle"></div>
 					</div>
-				</section>
-				<section class="benefits">
-					<div class="container">
-						<div class="box first">
-							<h1>Benefity</h1>
-							<h2><span>spolupráce</span></h2>
-						</div>
-						<div class="box second">
-							<div class="wrap">
-								<h1><span>1</span></h1>
-								<div class="text">
-									<h3>Jsme technici</h3>
-									<p> a vašim výrobkům budeme rozumět</p>
+				</div>
+			</section>
+			<section class="benefits">
+				<div class="container">
+					<div class="box first">
+						<p class="language_toggle">Benefity<span><br>spolupráce</span></p>
+						<p class="language_toggle en_language">Benefits<span><br>of cooperation</span></p>
+					</div>
+					<div class="box second">
+						<div class="wrap">
+							<h1><span>1</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="service_toggle language_toggle"><span>Jsme technici</span> a vašim výrobkům budeme rozumět</p>
+									<p class="service_toggle language_toggle en_language"><span>We are technicians</span> who understand your products</p>
+									<p class="service_toggle untoggled_service language_toggle"><span>Minimalizujeme</span> počet řeklamací</p>
+									<p class="service_toggle untoggled_service language_toggle en_language"><span>We</span> minimize complaints</p>
 								</div>
 							</div>
 						</div>
-						<div class="box third">
-							<div class="wrap">
-								<h1><span>2</span></h1>
-								<div class="text">
-									<h3>Poskytujeme poprodejní technickou podporu</h3>
-									<p> vašim zákazníkům</p>
+					</div>
+					<div class="box third">
+						<div class="wrap">
+							<h1><span>2</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="service_toggle language_toggle"><span>Poskytujeme poprodejní technickou podporu</span> vašim zákazníkům</p>
+									<p class="service_toggle language_toggle en_language"><span>We provide your customers with after-sales</span> technical support</p>
+									<p class="service_toggle untoggled_service language_toggle"><span>Minimalizujeme náklady</span> na kontrolu skladových zásob</p>
+									<p class="service_toggle untoggled_service language_toggle en_language"><span>We minimize</span> quality control costs</p>
 								</div>
 							</div>
 						</div>
-						<div class="box fourth">
-							<div class="wrap">
-								<h1><span>3</span></h1>
-								<div class="text">
-									<h3>Analyzujeme trh</h3>
-									<p> a najdeme cílového zákazníka</p>
+					</div>
+					<div class="box fourth">
+						<div class="wrap">
+							<h1><span>3</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="service_toggle language_toggle"><span>Analyzujeme trh</span> a najdeme cílového zákazníka</p>
+									<p class="service_toggle language_toggle en_language"><span>We analyze the market to find</span> the right target customers</p>
+									<p class="service_toggle untoggled_service language_toggle"><span>Podporujeme vás</span> při změnách nebo zavádění nových výrobků</p>
+									<p class="service_toggle untoggled_service language_toggle en_language"><span>We provide support</span> when you make changes or introduce new products</p>
 								</div>
 							</div>
 						</div>
-						<div class="box fifth">
-							<div class="wrap">
-								<h1><span>4</span></h1>
-								<div class="text">
-									<h3>Šetříme váš čas, energii a náklady</h3>
-									<p>s vedením zaměstance</p>
+					</div>
+					<div class="box fifth">
+						<div class="wrap">
+							<h1><span>4</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="service_toggle language_toggle"><span>Šetříme váš čas, energii a náklady</span> s vedením zaměstance</p>
+									<p class="service_toggle language_toggle en_language"><span>We save you time, energy, and costs, resulting</span> in fewer employees on the payroll</p>
+									<p class="service_toggle untoggled_service language_toggle"><span>Při řešení problémů</span> postupujeme ve váš prospěch</p>
+									<p class="service_toggle untoggled_service language_toggle en_language"><span>We defend</span> your interests over the course of problem solving</p>
 								</div>
 							</div>
 						</div>
-						<div class="box sixth">
-						</div>
 					</div>
-				</section>
-				<section class="quote">
-					<div class="container">
-						<div class="fifty left">
-							<h2>Věříme<br>v </h2>
-							<h1>diverzitu talentů</h1>
-						</div>
-						<div class="fifty right">
-							<p>Namísto jednoho zaměstnance poskytujeme svým klientům celý tým pracovníků nakolik podporujeme diverzitu talentů a jsme přesvědčeni, že každý má dělat jen to,<br> v čem je nejlepší.</p>
-						</div>
-					</div>
-				</section>
-				<section class="reasons">
-					<div class="container">
-						<div class="headline">
-							<h1>Proč si nás najmout<br>pro <span>sales engineering?<span></h1>
-							<p>Poskytneme vaší výrobní společnosti<br>obchodně technické zastoupení</p>
-						</div>
-						<div class="bulletpoints">
-							<div class="row">
-								<div class="dot"></div>
-								<p>Jsme zkušení při určování strategie vstupu na trh a hledání cílového zákazníka</p>
-							</div>
-							<div class="row">
-								<div class="dot"></div>
-								<p>Namísto jednoho zaměstnance poskytujeme svým klientům celý tým pracovníků</p>
-							</div>
-							<div class="row">
-								<div class="dot"></div>
-								<p>Předcházíme neefektivitě v důsledku zaměstnaneckého přístupu</p>
-							</div>
-							<div class="row">
-								<div class="dot"></div>
-								<p>Necháme vás soustředit se na vaši práci a jednoduše vám dodáme výsledky</p>
-							</div>
-							<div class="row last">
-								<div class="dot"></div>
-								<p>Nemusíte hledat obchodního zástupce ve formě zaměstnance a zabezpečovat mu zázemí</p>
+					<div class="box aditional_content hidden ad-one">
+						<div class="wrap">
+							<h1><span>5</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="language_toggle"><span>Vytváříme, zlepšujeme a udržujeme</span> vztahy s vašimi zákazníky</p>
+									<p class="language_toggle en_language"><span>We defend</span> your interests over the course of problem solving</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-			</div>
+					<div class="box aditional_content hidden ad-two">
+						<div class="wrap">
+							<h1><span>6</span></h1>
+							<div class="text">
+								<div class="swap-wrapper-benefits">
+									<p class="language_toggle"><span>Reportujeme</span> na operativní i pravidelné bázi</p>
+									<p class="language_toggle en_language"><span>We defend</span> your interests over the course of problem solving</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box sixth">
+					</div>
+				</div>
+			</section>
+			<section class="quote">
+				<div class="container">
+					<div class="fifty left">
+						<div class="text">
+							<p class="service_toggle language_toggle"><span>Věříme<br>v </span>diverzitu talentů</p>
+							<p class="service_toggle language_toggle en_language"><span>We believe<br>in </span>talent diversity</p>
+							<p class="service_toggle untoggled_service language_toggle"><span>Problémy</span><br>řešíme<br>ihned</p>
+							<p class="service_toggle untoggled_service language_toggle en_language"><span>We solve</span><br>problems<br>immediately</p>
+						</div>
+					</div>
+					<div class="fifty right">
+						<p class="service_toggle language_toggle"> Namísto jednoho zaměstnance poskytujeme svým klientům celý tým pracovníků nakolik podporujeme diverzitu talentů a jsme přesvědčeni, že každý má dělat jen to,<br> v čem je nejlepší.</p>
+						<p class="service_toggle language_toggle en_language"> Instead of one person, we provide our clients with an entire team of specialists. This is because we support talent diversity and believe that everyone should do only what they are best at.</p>
+						<p class="service_toggle untoggled_service language_toggle">Našim cílem je efektivně řešit problémy u vašich výrobků v momentě jejich vzniku, minimalizovat počet reklamací, zlepšit komunikaci se zákazníkem a celkovou reputaci u vašeho zákazníka. </p>
+						<p class="service_toggle untoggled_service language_toggle en_language">Our goal is to effectively solve problems regarding your products as they arise, minimize complaints, and improve communications and your overall reputation with your customer.</p>
+					</div>
+				</div>
+			</section>
+			<section class="reasons">
+				<div class="container">
+					<div class="headline">
+						<div class="headline-content">
+							<div class="swap-wrapper-reasons">
+								<h1 class="service_toggle language_toggle">Proč si nás najmout<br>pro <span>sales engineering?<span></h1>
+								<h1 class="service_toggle language_toggle en_language">Why hire us for<br><span>sales engineering?<span></h1>
+								<h1 class="service_toggle untoggled_service language_toggle">Proč si nás najmout<br>pro <span>resident inženýring?</span></h1>
+								<h1 class="service_toggle untoggled_service language_toggle en_language">Why hire us for<br><span>resident inženýring?</span></h1>
+
+							</div>
+							<div class="swap-wrapper-reasons">
+								<p class="service_toggle language_toggle">Poskytneme vaší výrobní společnosti<br>obchodně technické zastoupení</p>
+								<p class="service_toggle language_toggle en_language">We provide your manufacturing company<br>with commercial and technical representation</p>
+								<p class="service_toggle untoggled_service language_toggle">Poskytneme vaší výrobní společnosti<br> technické zastoupení</p>
+								<p class="service_toggle untoggled_service language_toggle en_language">We represent your automotive<br> manufacturing company directly with your customer</p>
+							</div>
+						</div>
+					</div>
+					<div class="bulletpoints">
+						<div class="row">
+							<div class="dot"></div>
+							<p class="service_toggle language_toggle">Jsme zkušení při určování strategie vstupu na trh a hledání cílového zákazníka</p>
+							<p class="service_toggle language_toggle en_language">Our experience will help us determine your market entry strategy and find the right target customers for you</p>
+							<p class="service_toggle untoggled_service language_toggle">Nemáme smlouvy s vašimi zákazniky ani poskytovateli třídění a proto jsme nezávisli</p>
+							<p class="service_toggle untoggled_service language_toggle en_language">We do not hold contracts with your customers or sorting service providers and thus remain independent</p>
+						</div>
+						<div class="row">
+							<div class="dot"></div>
+							<p class="service_toggle language_toggle">Namísto jednoho zaměstnance poskytujeme svým klientům celý tým pracovníků</p>
+							<p class="service_toggle language_toggle en_language">You will not need to hire or train employees to represent you</p>
+							<p class="service_toggle untoggled_service language_toggle">Okamžitě řešíme problémy související s vámi dodanými díly</p>
+							<p class="service_toggle untoggled_service language_toggle en_language">We solve problems related to the parts you supply right away</p>
+						</div>
+						<div class="row">
+							<div class="dot"></div>
+							<p class="service_toggle language_toggle">Předcházíme neefektivitě v důsledku zaměstnaneckého přístupu</p>
+							<p class="service_toggle language_toggle en_language">We are more efficient since we do not work for you as an employee</p>
+							<p class="service_toggle untoggled_service language_toggle">Dlouhodobě dosahujeme vynikajících výsledků</p>
+							<p class="service_toggle untoggled_service language_toggle en_language">We achieve excellent results over the long term</p>
+						</div>
+						<div class="row">
+							<div class="dot"></div>
+							<p class="service_toggle language_toggle">Necháme vás soustředit se na vaši práci a jednoduše vám dodáme výsledky</p>
+							<p class="service_toggle language_toggle en_language">We let you focus on your work while we deliver the results</p>
+							<p class="service_toggle untoggled_service language_toggle">Získáte službu s výsledky za zlomek ceny vlastního zástupce</p>
+							<p class="service_toggle untoggled_service language_toggle en_language">You get a service with results at a fraction of the cost of hiring your own representatives</p>
+						</div>
+						<div class="row last">
+							<div class="dot"></div>
+							<p class="service_toggle language_toggle">Nemusíte hledat obchodního zástupce ve formě zaměstnance a zabezpečovat mu zázemí</p>
+							<p class="service_toggle language_toggle en_language">We provide clients with a team of specialists rather than just one person</p>
+							<p class="service_toggle untoggled_service language_toggle">Známe dokonale systém práce vašich zákazníků</p>
+							<p class="service_toggle untoggled_service language_toggle en_language">We have a perfect knowledge of your customer's work system</p>
+						</div>
+						<div class="row lastlast service_toggle untoggled_service">
+							<div class="dot"></div>
+							<p class="language_toggle">Jsme profesionálové a máme dlouholeté zkušenosti</p>
+							<p class="language_toggle en_language">We work professionally based on many years of experience</p>
+						</div>
+					</div>
+				</div>
+			</section>
 			<section class="where">
-				<div class="circle"></div>
-				<div class="innercircle"></div>
-				<div class="reveal">
-					<div class="first">
-						<p><span>Působíme</span><br> v České republice a na Slovensku</p>
+				<div class="where__contentWrap">
+					<div class="where__circleWrap">
+						<div class="where__circleWrap__circle"></div>
+						<div class="where__circleWrap__innercircle"></div>
 					</div>
-					<div class="second">
-						<div id="where_first_button" class="box active">
-							<p>Zavolejte nám</p>
+					<div class="where__reveal">
+						<div class="where__reveal__first">
+							<p class="language_toggle"><span>Působíme</span><br> v České republice a na Slovensku</p>
+							<p class="language_toggle en_language"><span>We operate</span><br> in Czech Republic and Slovakia</p>
 						</div>
-						<div id="where_second_button" class="box">
-							<p>Napiště nám</p>
+						<div class="where__reveal__second">
+							<a href="tel:+420606050959" rel="noopener">
+								<div id="where_first_button" class="box active">
+									<p class="language_toggle">Zavolejte nám</p>
+									<p class="language_toggle en_language">Call us</p>
+								</div>
+							</a>
+							<a href="mailto:info@ergea.com" rel="noopener">
+								<div id="where_second_button" class="box">
+									<p class="language_toggle">Napiště nám</p>
+									<p class="language_toggle en_language">Contact us</p>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -254,23 +392,40 @@
 				<div class="container">
 					<div class="fifty first">
 						<div class="text">
-							<h1>Naše služby</h1>
-							<p>Sales Engineering</p>
-							<p>Resident Engineering</p>
+							<h1 class="language_toggle">Naše služby</h1>
+							<h1 class="language_toggle en_language">Our services</h1>
+							<div class="footerinfo-wrap">
+								<a href="" rel="noopener" class="notactive footer-service-toggle">
+									<p>Sales Engineering</p>
+								</a>
+								<a href="" rel="noopener" class="footer-service-toggle">
+									<p>Resident Engineering</p>
+								</a>
+							</div>
 						</div>
 					</div>
 					<div class="fifty">
 						<div class="left">
-							<h1>Kontaktujte nás</h1>
-							<p>+420 606 050 959</p>
-							<p>info@email.com</p>
+							<h1 class="language_toggle">Kontaktujte nás</h1>
+							<h1 class="language_toggle en_language">Contact us</h1>
+							<div class="footerinfo-wrap">
+								<a href="tel:+420606050959" rel="noopener">
+									<p>+420 606 050 959</p>
+								</a>
+								<a href="mailto:info@ergea.com" rel="noopener">
+									<p>info@ergea.com</p>
+								</a>
+							</div>
 						</div>
 						<div class="right">
-							<h1>Naše sídlo</h1>
-							<p>Ergea Engineering, s.r.o.<br>
-								Plaská 622/4, Malá Strana<br>
-								15000 Praha<br>
-								Czech Republic</p>
+							<h1 class="language_toggle">Naše sídlo</h1>
+							<h1 class="language_toggle en_language">Headquarters</h1>
+							<div class="footerinfo-wrap">
+								<p>Ergea Engineering, s.r.o.<br>
+									Plaská 622/4, Malá Strana<br>
+									15000 Praha<br>
+									Czech Republic</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -286,7 +441,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?202302143991"></script>
+	<script src="js/scripts.js?202302265099"></script>
 </body>
 
 </html>
