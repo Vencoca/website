@@ -1103,8 +1103,9 @@ const contentWrapTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".service",
         start: "bottom+=81 bottom",
-        end: "top+=98 top+=80",
+        end: "top+=198 top+=80",
         scrub: true,
+        invalidateOnRefresh: true,
         onEnterBack: () => {
             gsap.set("#smooth-wrapper", {clipPath: "inset(80px 0px 0px 0px)"})
             gsap.set(".fixed", {maxHeight: 80})
@@ -1116,11 +1117,13 @@ contentWrapTl.to(".service_box",{
     height: 120,
     width: '50%',
     duration: 1,
+    ease: "power1.inOut"
 },"<");
 
 contentWrapTl.to(".content-wrap-left",{
     right: () => document.getElementById("nav_container").offsetWidth/2 - 272*3/2,
     duration: 1,
+    ease: "power1.inOut"
 },"<");
 
 contentWrapTl.fromTo(".content-wrap",{
@@ -1128,13 +1131,14 @@ contentWrapTl.fromTo(".content-wrap",{
     }, {
     top: "34px",
     duration: 1,
-    ease: "circ.out",
+    ease: "power1.inOut",
 }, "<")
 
 //Change of font
 contentWrapTl.to(".service_text",{
     scale:0.6666,
     duration: 1,
+    ease: "power1.inOut"
 }, "<");
 
 //Hide show more
@@ -1143,12 +1147,19 @@ contentWrapTl.to(".show_more",{
     height: 0,
     marginBottom:0,
     duration: 0.3,
+    ease: "power1.inOut"
 },"<");
 
 contentWrapTl.to(".bigtext_container",{
     y: -120,
     ease: "power4.in",
     duration: 1.2,
+},"<");
+
+contentWrapTl.to(".service_menu",{
+    y: 100,
+    duration: 1,
+    ease: "power1.inOut"
 },"<");
 document.getElementById('video').addEventListener("click", () => {    
     let player = document.getElementById("ytplayer"); 
@@ -1236,14 +1247,14 @@ whereInTl.from(".where__circleWrap__circle",{
 }, "<")
 
 const wherePinTl = gsap.timeline({
-    duration: 10,
+    duration: 20,
     scrollTrigger: {
         trigger: ".where",
-        pin: ".where ",
+        //pin: ".where ",
         start: "top+=350 top+=80",
-        end: "+=650", 
+        end: "bottom top+=80", 
         scrub: true,
-       // markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
+        //markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
     }
 })
 
@@ -1254,15 +1265,15 @@ wherePinTl.to(".where__reveal__first",{
 },"<")
 
 wherePinTl.to(".where__circleWrap__circle",{
-    duration: 10,
-    width: 1660,
-    height: 1660
+    duration: 20,
+    width: 2420,
+    height: 3020,  
 },"<")
 
 wherePinTl.to(".where__circleWrap__innercircle",{
-    duration: 10,
-    width: 1490,
-    height: 1490,
+    duration: 20,
+    width: 2420,
+    height: 3020,  
 },"<")
 
 wherePinTl.to(".where__reveal__first",{
@@ -1279,16 +1290,16 @@ wherePinTl.to(".where__reveal__second",{
 
 
 
-
+/*
 const whereOutTl = gsap.timeline({
     duration: 10,
     scrollTrigger:{
         trigger: ".where",
-        start: "top+=351 top+=80",
+        start: "top+=1000 top+=80",
         endTrigger: ".partners",
         end: "top top+=80",
         scrub: true,
-        //markers: true,
+        markers: true,
     }
 })
 
@@ -1304,54 +1315,6 @@ whereOutTl.to(".where__circleWrap__innercircle",{
     width: 2420,
     height: 3020,
     ease: CustomEase.create("custom", "M0,0,C0,0,0.155,0.095,0.198,0.138,0.406,0.346,1,1,1,1")
-},"<")
-
-/*
-whereOutTl.to(".where__circleWrap__circle",{
-    duration: 4,
-    width: 2420,
-    height: 3020,   
-},"<")
-
-whereOutTl.to(".where__circleWrap__innercircle",{
-    duration: 4,
-    width: 2420,
-    height: 3020,
-},"<")
-
-/*
-whereOutTl.to(".where__circleWrap__circle",{
-    duration: 4,
-    width: 1850,
-    height: 2050,   
-},"<")
-
-whereOutTl.to(".where__circleWrap__innercircle",{
-    duration: 4,
-    width: 1800,
-    height: 2000,
-},"<")
-
-whereOutTl.to(".where__circleWrap__innercircle",{
-    duration: 8,
-    y: 500,
-},"<")
-
-whereOutTl.to(".where__circleWrap__circle",{
-    duration: 8,
-    y: 500,
-},"<")
-
-whereOutTl.to(".where__circleWrap__circle",{
-    duration: 8,
-    width: 2420,
-    height: 3020,
-},"<4")
-
-whereOutTl.to(".where__circleWrap__innercircle",{
-    duration: 8,
-    width: 2420,
-    height: 3020,
 },"<")*/
 
 const service_boxes = document.querySelectorAll(".service_hover")
@@ -1374,7 +1337,7 @@ service_boxes.forEach(element => {
 
 function hoverEnter(event){
 
-    if (!ScrollTrigger.isScrolling()) {
+    //if (!ScrollTrigger.isScrolling()) {
 
         if(event.target.classList.contains("notactive")){
 
@@ -1388,7 +1351,7 @@ function hoverEnter(event){
 
         }
 
-    }   
+    //}   
 
 }
 
@@ -1410,18 +1373,6 @@ function hoverLeave(event){
 
 function swapOnClick(event){
 
-    service_toggles_footer.forEach(element => {
-
-        element.classList.toggle("notactive");
-
-    })
-
-    aditional_content.forEach(element => {
-
-        element.classList.toggle("hidden")
-
-    })
-
     if(event.target.closest('.service_hover').classList.contains("hovering")){
 
         event.target.closest('.service_hover').classList.toggle("hovering")
@@ -1432,9 +1383,17 @@ function swapOnClick(event){
 
         })
 
-    }
+        aditional_content.forEach(element => {
 
-    if(event.target.closest('.service_hover').classList.contains("service_box")){
+            element.classList.toggle("hidden")
+
+        })
+
+        service_toggles_footer.forEach(element => {
+
+            element.classList.toggle("notactive");
+
+        })
 
         gsap.to(smoother, {
 
@@ -1446,9 +1405,9 @@ function swapOnClick(event){
 
         });
 
-    }
+        ScrollTrigger.refresh();
 
-    ScrollTrigger.refresh();
+    }
 
 }
 
