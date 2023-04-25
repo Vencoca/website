@@ -1405,7 +1405,7 @@ function swapOnClick(event){
 
         });
 
-        ScrollTrigger.refresh();
+        //ScrollTrigger.refresh();
 
     }
 
