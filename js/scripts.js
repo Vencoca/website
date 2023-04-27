@@ -1058,8 +1058,8 @@ loadTl.to(".fixed",{
     duration: 1,
 }, "<");
 
-loadTl.from(".service__content" ,{
-    y: 200,
+loadTl.to(".service__content" ,{
+    y: 0,
     duration: 1.2,
     ease: "power1.out",
 }, "<");
