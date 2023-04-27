@@ -25,10 +25,10 @@
 
 	<section class="fixed">
 		<header class="header">
-			<div class="logo">
+			<div class="nav__left logo">
 				<img src="@/../images/bg/logo.svg" alt="Ergea logo">
 			</div>
-			<div id="nav_container" class="container_nav">
+			<div id="nav_container" class="nav__middle container_nav">
 				<div class="language_switcher">
 					<button class="lang_button active">CZ</button>
 					<button class="lang_button">EN</button>
@@ -42,13 +42,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="cta">
+			<div class="nav__right cta">
 				<p class="language_toggle">Napište nám</p>
 				<p class="language_toggle en_language">Write us</p>
 			</div>
 		</header>
 		<div class="service_menu_fixed">
 			<div class="service_box_fixed left service_hover">
+				<div class="nav__left"></div>
 				<div class="text">
 					<h1 class="service_header_fixed">Sales</h1>
 					<h2 class="service_header_fixed">Engineering</h2>
@@ -59,6 +60,7 @@
 					<h1 class="service_header_fixed">Resident</h1>
 					<h2 class="service_header_fixed">Engineering</h2>
 				</div>
+				<div class="nav__right"></div>
 			</div>
 		</div>
 	</section>
@@ -66,50 +68,46 @@
 		<div id="smooth-content">
 			<section class="hero">
 				<div class="container">
-					<div class="fifty">
-						<div class="big_text">
-							<div class="hero__wrap">
-								<div class="hero__wrap__content">
-									<p class="language_toggle"><span>Zastupujeme</span></p>
-									<p class="language_toggle en_language"><span>We represent</span></p>
-								</div>
+					<div class="big_text">
+						<div class="hero__wrap">
+							<div class="hero__wrap__content">
+								<p class="language_toggle">
+									<span>Zastupujeme</span>
+								</p>
+								<p class="language_toggle en_language">
+									<span>We represent</span>
+								</p>
 							</div>
-							<div class="hero__wrap">
-								<div class="hero__wrap__content">
-									<p class="language_toggle">výrobní</p>
-									<p class="language_toggle en_language">manufacturing</p>
-								</div>
+						</div>
+						<div class="hero__wrap">
+							<div class="hero__wrap__content">
+								<p class="language_toggle">výrobní</p>
+								<p class="language_toggle en_language">manufacturing</p>
 							</div>
-							<div class="hero__wrap">
-								<div class="hero__wrap__content">
-									<p class="language_toggle">společnosti</p>
-									<p class="language_toggle en_language">companies</p>
-								</div>
+						</div>
+						<div class="hero__wrap">
+							<div class="hero__wrap__content">
+								<p class="language_toggle">společnosti</p>
+								<p class="language_toggle en_language">companies</p>
 							</div>
 						</div>
 					</div>
-					<div class="fifty right">
-						<div class="numbers">
-							<div class="hero__first">
-								<div class="hero__wrap">
-									<div class="hero__wrap__content">
-										<img src="@/../images/bg/20_plus.svg" alt="20 plus">
-										<div class="hero-language-wrap">
-											<p class="language_toggle">dlouhodobých<br>klientů</p>
-											<p class="language_toggle en_language">long-term<br>clients</p>
-										</div>
-									</div>
+					<div class="numbers">
+						<div class="numbers__wrap-top numbers__wrap">
+							<div class="numbers__box hero__wrap__content">
+								<img id="top_img" src="@/../images/bg/20_plus.svg" alt="20 plus">
+								<div class=" hero-language-wrap">
+									<p class="language_toggle">dlouhodobých<br>klientů</p>
+									<p class="language_toggle en_language">long-term<br>clients</p>
 								</div>
 							</div>
-							<div class="hero__second">
-								<div class="hero__wrap">
-									<div class="hero__wrap__content">
-										<img src="@/../images/bg/10_plus.svg" alt="10 plus">
-										<div class="hero-language-wrap">
-											<p class="language_toggle">let<br>na trhu</p>
-											<p class="language_toggle en_language">years<br>on the market</p>
-										</div>
-									</div>
+						</div>
+						<div class="numbers__wrap-bottom numbers__wrap">
+							<div class="numbers__box hero__wrap__content">
+								<img id="bottom_img" src="@/../images/bg/10_plus.svg" alt="10 plus">
+								<div class="hero-language-wrap">
+									<p class="language_toggle">let<br>na trhu</p>
+									<p class="language_toggle en_language">years<br>on the market</p>
 								</div>
 							</div>
 						</div>
@@ -443,7 +441,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?202304254995"></script>
+	<script src="js/scripts.js?20230428340"></script>
 </body>
 
 </html>

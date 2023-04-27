@@ -1046,19 +1046,17 @@ service_button.addEventListener("click", (e) => {
 
 
 
-
-
 const loadTl = gsap.timeline({
     delay: 0.8,
     duration: 1.2,
 })
 
 
-loadTl.from(".smooth-wrapper",{
-    clipPath: "inset(0px 0px 0px 0px)",
+loadTl.to(".fixed",{
+    "--afterTop": '80px',
+    "--afterHeight" : 0,
     duration: 1,
 }, "<");
-
 
 loadTl.from(".service__content" ,{
     y: 200,
@@ -1067,12 +1065,19 @@ loadTl.from(".service__content" ,{
 }, "<");
 
 
-loadTl.from(".hero__wrap__content",{
+loadTl.to(".hero__wrap__content" ,{
     duration: 1,
-    yPercent: 100,
-    stagger: 0.1
+    y: 0,
+    //stagger: 0.1
 }, "<")
-  
+
+
+loadTl.to(".numbers",{
+    "--numbersWrapTop" : '-100px',
+    duration: 1.0,
+    //stagger: 0.1
+}, "<")
+
 const service_toggles_footer = document.querySelectorAll(".footer-service-toggle")
 
 service_toggles_footer.forEach(element => {
@@ -1094,10 +1099,13 @@ service_toggles_footer.forEach(element => {
         });
     });
 });
+const smoothWrap = document.getElementById("smooth-wrapper");
+
 const contentWrapTl = gsap.timeline({
     duration: 1,
     onComplete: () => {
-        gsap.set("#smooth-wrapper", {clipPath: "inset(200px 0px 0px 0px)"})
+        //gsap.set("#smooth-wrapper", {clipPath: "inset(200px 0px 0px 0px)"})
+        smoothWrap.classList.toggle("smooth-wrapper-active");
         gsap.set(".fixed", {maxHeight: 200})
     },
     scrollTrigger: {
@@ -1107,7 +1115,8 @@ const contentWrapTl = gsap.timeline({
         scrub: true,
         invalidateOnRefresh: true,
         onEnterBack: () => {
-            gsap.set("#smooth-wrapper", {clipPath: "inset(80px 0px 0px 0px)"})
+            smoothWrap.classList.toggle("smooth-wrapper-active");
+            //gsap.set("#smooth-wrapper", {clipPath: "inset(80px 0px 0px 0px)"})
             gsap.set(".fixed", {maxHeight: 80})
         },
     }
@@ -1322,6 +1331,10 @@ const service_boxes = document.querySelectorAll(".service_hover")
 const service_toggles = document.querySelectorAll(".service_toggle")
 
 const aditional_content = document.querySelectorAll(".aditional_content")
+
+var r = document.querySelector(':root');
+
+const rs = getComputedStyle(r);
 
 
 
