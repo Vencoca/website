@@ -1130,7 +1130,7 @@ contentWrapTl.to(".service_box",{
 },"<");
 
 contentWrapTl.to(".content-wrap-left",{
-    right: () => document.getElementById("nav_container").offsetWidth/2 - 272*3/2,
+    right: () => document.getElementById("nav_container").offsetWidth/2 - 272*3/2 + 12,
     duration: 1,
     ease: "power1.inOut"
 },"<");
