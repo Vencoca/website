@@ -1064,6 +1064,11 @@ loadTl.to(".service__content" ,{
     ease: "power1.out",
 }, "<");
 
+loadTl.to(".service__cover" ,{
+    opacity: 0,
+    duration: 1.2,
+    ease: "power1.out",
+}, "<");
 
 loadTl.to(".hero__wrap__content" ,{
     duration: 1,
@@ -1401,7 +1406,7 @@ const whereInTl = gsap.timeline({
         trigger: ".reasons",
         start: "bottom bottom",
         endTrigger: ".where",
-        end: "top+=350 top+=80",
+        end: "top+=150 top+=80",
         scrub: true,
     }
 })
@@ -1425,8 +1430,8 @@ const wherePinTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".where",
         //pin: ".where ",
-        start: "top+=350 top+=80",
-        end: "bottom top+=80", 
+        start: "top+=150 top+=100",
+        end: "bottom top+=100", 
         scrub: true,
         //markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
     }
@@ -1440,13 +1445,13 @@ wherePinTl.to(".where__reveal__first",{
 
 wherePinTl.to(".where__circleWrap__circle",{
     duration: 20,
-    width: 2420,
+    width: 3020,
     height: 3020,  
 },"<")
 
 wherePinTl.to(".where__circleWrap__innercircle",{
     duration: 20,
-    width: 2420,
+    width: 3020,
     height: 3020,  
 },"<")
 
@@ -1460,6 +1465,8 @@ wherePinTl.to(".where__reveal__second",{
     y: -100,
     opacity: 100,
 },"<")
+
+
 
 
 
