@@ -1101,75 +1101,144 @@ service_toggles_footer.forEach(element => {
 });
 const smoothWrap = document.getElementById("smooth-wrapper");
 
-const contentWrapTl = gsap.timeline({
-    duration: 1,
-    onComplete: () => {
-        //gsap.set("#smooth-wrapper", {clipPath: "inset(200px 0px 0px 0px)"})
-        smoothWrap.classList.toggle("smooth-wrapper-active");
-        gsap.set(".fixed", {maxHeight: 200})
-    },
-    scrollTrigger: {
-        trigger: ".service",
-        start: "bottom+=81 bottom",
-        end: "top+=198 top+=80",
-        scrub: true,
-        invalidateOnRefresh: true,
-        onEnterBack: () => {
-            smoothWrap.classList.toggle("smooth-wrapper-active");
-            //gsap.set("#smooth-wrapper", {clipPath: "inset(80px 0px 0px 0px)"})
-            gsap.set(".fixed", {maxHeight: 80})
-        },
+let mm = gsap.matchMedia();
+
+mm.add({
+    // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+    isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+    isMin1440p: '(min-width: 1441px)',
+    isTablet: '(min-width: 768px) and (max-width: 952px)',
+    isMobile: '(max-width: 952px)',
+}, (context) => {
+    // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+    let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+    if (isMin1440p) {
+        const contentWrapTl = gsap.timeline({
+            duration: 1,
+            onComplete: () => {
+                smoothWrap.classList.add("smooth-wrapper-active");
+                gsap.set(".fixed", { maxHeight: 200 })
+            },
+            scrollTrigger: {
+                trigger: ".service",
+                start: "bottom+=81 bottom",
+                end: "top+=198 top+=80",
+                scrub: true,
+                invalidateOnRefresh: true,
+                onEnterBack: () => {
+                    smoothWrap.classList.remove("smooth-wrapper-active");
+                    gsap.set(".fixed", { maxHeight: 80 })
+                },
+            }
+
+        })
+        contentWrapTl.to(".service_box", {
+            width: '50%',
+            height: 120,
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
+        contentWrapTl.to(".service_text p", {
+            fontSize: "0.6666em",
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
+
+        //Hide show more
+        contentWrapTl.to(".show_more", {
+            opacity: 0,
+            height: 0,
+            marginBottom: 0,
+            paddingTop: 0,
+            duration: 0.3,
+            ease: "power1.inOut"
+        }, "<");
+
+        contentWrapTl.to(".content-wrap", {
+            paddingTop: "1em",
+            left: "50%",
+            xPercent: -50,
+            duration: 1,
+        }, "<")
+        /*
+        contentWrapTl.to(".bigtext_container",{
+            y: -120,
+            ease: "power4.in",
+            duration: 1.2,
+        },"<");*/
+
+        contentWrapTl.to(".service_menu", {
+            y: 100,
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
+
+    } else {
+        const contentWrapTl = gsap.timeline({
+            duration: 1,
+            onComplete: () => {
+                smoothWrap.classList.add("smooth-wrapper-active");
+                gsap.set(".fixed", { maxHeight: 200 })
+            },
+            scrollTrigger: {
+                trigger: ".service",
+                start: "bottom+=81 bottom",
+                end: "top+=198 top+=74",
+                scrub: true,
+                invalidateOnRefresh: true,
+                onEnterBack: () => {
+                    smoothWrap.classList.remove("smooth-wrapper-active");
+                    gsap.set(".fixed", { maxHeight: 80 })
+                },
+            }
+        })
+        contentWrapTl.to(".service_box", {
+            width: '50%',
+            height: 74,
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
+        contentWrapTl.to(".service_text p", {
+            fontSize: "0.6666em",
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
+
+        //Hide show more
+        contentWrapTl.to(".show_more", {
+            opacity: 0,
+            height: 0,
+            marginBottom: 0,
+            paddingTop: 0,
+            duration: 0.3,
+            ease: "power1.inOut"
+        }, "<");
+
+        contentWrapTl.to(".content-wrap", {
+            paddingTop: "1em",
+            left: "50%",
+            xPercent: -50,
+            duration: 1,
+        }, "<")
+        /*
+        contentWrapTl.to(".bigtext_container",{
+            y: -120,
+            ease: "power4.in",
+            duration: 1.2,
+        },"<");
+        */
+        contentWrapTl.to(".service_menu", {
+            y: 100,
+            duration: 1,
+            ease: "power1.inOut"
+        }, "<");
     }
-})
 
-contentWrapTl.to(".service_box",{
-    height: 120,
-    width: '50%',
-    duration: 1,
-    ease: "power1.inOut"
-},"<");
-
-contentWrapTl.to(".content-wrap-left",{
-    right: () => document.getElementById("nav_container").offsetWidth/2 - 272*3/2 + 12,
-    duration: 1,
-    ease: "power1.inOut"
-},"<");
-
-contentWrapTl.fromTo(".content-wrap",{
-    top: "50%",
-    }, {
-    top: "34px",
-    duration: 1,
-    ease: "power1.inOut",
-}, "<")
-
-//Change of font
-contentWrapTl.to(".service_text",{
-    scale:0.6666,
-    duration: 1,
-    ease: "power1.inOut"
-}, "<");
-
-//Hide show more
-contentWrapTl.to(".show_more",{
-    opacity:0,
-    height: 0,
-    marginBottom:0,
-    duration: 0.3,
-    ease: "power1.inOut"
-},"<");
-
-contentWrapTl.to(".bigtext_container",{
-    y: -120,
-    ease: "power4.in",
-    duration: 1.2,
-},"<");
-
-contentWrapTl.to(".service_menu",{
-    y: 100,
-    duration: 1,
-    ease: "power1.inOut"
-},"<");
+    return () => {
+        // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+        // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+    }
+}); 
 document.getElementById('video').addEventListener("click", () => {    
     let player = document.getElementById("ytplayer"); 
     player.style.opacity = 100;
@@ -1180,11 +1249,35 @@ document.getElementById('video').addEventListener("click", () => {
         let symbol = player.src.indexOf('?') > -1 ? '&' : '?';
         player.src += symbol + 'autoplay=1';
     }
-    gsap.to(smoother, {
-        scrollTop: smoother.offset(".video", "center-=200 center"),
-        duration: 1,
-        ease: "inOut",
+    let mm = gsap.matchMedia();
+    mm.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+        isMin1440p: '(min-width: 1441px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        if (isMin1440p) {
+            gsap.to(smoother, {
+                scrollTop: smoother.offset("#video", "top top+=260"),
+                duration: 1,
+                ease: "inOut",
+            });
+        } else {
+            gsap.to(smoother, {
+                scrollTop: smoother.offset("#video", "top top+=164"),
+                duration: 1,
+                ease: "inOut",
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
     });
+    
 });
 
 gsap.to(".video_circle",{
@@ -1197,25 +1290,73 @@ gsap.to(".video_circle",{
         scrub: true, 
     }
 });
-const hideNavTl = gsap.timeline({
-    duration: 1,
-    scrollTrigger: {
-        trigger: ".reasons",
-        start: "bottom+=260 center",
-        end: "bottom+=260 top+=80",
-        scrub: true,
-    }
-})
 
-hideNavTl.to(".fixed",{
-    duration: 1,
-    maxHeight: 80,
-},"<")
-
+/*
 hideNavTl.to("#smooth-wrapper",{
     duration: 1,
     clipPath: "inset(81px 0px 0px 0px)",
 },"<")
+*/
+
+let mm2 = gsap.matchMedia();
+mm2.add({
+    // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+    isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+    isMin1440p: '(min-width: 1441px)',
+    isTablet: '(min-width: 768px) and (max-width: 952px)',
+    isMobile: '(max-width: 952px)',
+}, (context) => {
+    // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+    let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+    if (isMin1440p) {
+        const hideNavTl = gsap.timeline({
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".reasons",
+                start: "bottom+=260 center",
+                end: "bottom+=260 top+=80",
+                scrub: true,
+            }
+        })
+        
+        hideNavTl.to(".fixed",{
+            duration: 1,
+            maxHeight: 80,
+        },"<")
+        
+        hideNavTl.to("body",{
+            duration: 1,
+            fontSize: 80,
+        },"<")
+
+    } else {
+        const hideNavTl = gsap.timeline({
+            duration: 1,
+            scrollTrigger: {
+                trigger: ".reasons",
+                start: "bottom+=260 center",
+                end: "bottom+=260 top+=80",
+                scrub: true,
+            }
+        })
+        
+        hideNavTl.to(".fixed",{
+            duration: 1,
+            maxHeight: 74,
+        },"<")
+        
+        hideNavTl.to("body",{
+            duration: 1,
+            fontSize: 74,
+        },"<")
+    }
+
+    return () => {
+        // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+        // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+    }
+}); 
+
 const button1 = document.getElementById("where_first_button");
 const button2 = document.getElementById("where_second_button");
 
@@ -1346,31 +1487,13 @@ service_boxes.forEach(element => {
 
     element.addEventListener("click", swapOnClick);
 
+    element.addEventListener("mousemove", updateOnMouseMove)
+
 });
 
-function hoverEnter(event){
+function updateOnMouseMove(event) {
 
-    //if (!ScrollTrigger.isScrolling()) {
-
-        if(event.target.classList.contains("notactive")){
-
-            event.target.classList.toggle("hovering")
-
-            service_boxes.forEach(element => {
-
-                element.classList.toggle("notactive");
-
-            });
-
-        }
-
-    //}   
-
-}
-
-function hoverLeave(event){
-
-    if(event.target.classList.contains("hovering")){
+    if (event.target.classList.contains("notactive")) {
 
         event.target.classList.toggle("hovering")
 
@@ -1384,9 +1507,45 @@ function hoverLeave(event){
 
 }
 
-function swapOnClick(event){
+function hoverEnter(event) {
 
-    if(event.target.closest('.service_hover').classList.contains("hovering")){
+    if (!ScrollTrigger.isScrolling()) {
+
+        if (event.target.classList.contains("notactive")) {
+
+            event.target.classList.toggle("hovering")
+
+            service_boxes.forEach(element => {
+
+                element.classList.toggle("notactive");
+
+            });
+
+        }
+
+    }
+
+}
+
+function hoverLeave(event) {
+
+    if (event.target.classList.contains("hovering")) {
+
+        event.target.classList.toggle("hovering")
+
+        service_boxes.forEach(element => {
+
+            element.classList.toggle("notactive");
+
+        });
+
+    }
+
+}
+
+function swapOnClick(event) {
+
+    if (event.target.closest('.service_hover').classList.contains("hovering")) {
 
         event.target.closest('.service_hover').classList.toggle("hovering")
 
@@ -1408,21 +1567,77 @@ function swapOnClick(event){
 
         })
 
-        gsap.to(smoother, {
-
-            scrollTop: smoother.offset(".bigtext", "top-=310 top"),
-
-            duration: 1,
-
-            ease: "inOut",
-
-        });
-
-        //ScrollTrigger.refresh();
+        ScrollTrigger.refresh();
 
     }
 
+    
+
+    let mm = gsap.matchMedia();
+
+    mm.add({
+
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+
+        isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+
+        isMin1440p: '(min-width: 1441px)',
+
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+
+        isMobile: '(max-width: 952px)',
+
+    }, (context) => {
+
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+
+        if (isMin1440p) {
+
+            gsap.to(smoother, {
+
+                scrollTop: smoother.offset(".bigtext", "top-=320 top"),
+
+                duration: 1,
+
+                ease: "inOut",
+
+                markers: true,
+
+            });
+
+        } else {
+
+            gsap.to(smoother, {
+
+                scrollTop: smoother.offset(".bigtext", "top-=256 top"),
+
+                duration: 1,
+
+                ease: "inOut",
+
+            });
+
+        }
+
+        return () => {
+
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+
+        }
+
+    });
+
+
+
 }
+
+
+
+
 
 
 
