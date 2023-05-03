@@ -1081,7 +1081,7 @@ loadTl.to(".numbers",{
 const service_toggles_footer = document.querySelectorAll(".footer-service-toggle")
 
 service_toggles_footer.forEach(element => {
-    element.addEventListener("click", (event)=>{
+    element.addEventListener("click", (event) => {
         event.preventDefault()
         service_boxes.forEach(element => {
             element.classList.toggle("notactive");
@@ -1092,10 +1092,34 @@ service_toggles_footer.forEach(element => {
         service_toggles_footer.forEach(element => {
             element.classList.toggle("notactive");
         })
-        gsap.to(smoother, {
-            scrollTop: smoother.offset(".bigtext", "top-=310 top"),
-            duration: 2,
-            ease: "inOut",
+        let mm = gsap.matchMedia();
+        mm.add({
+            // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+            isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+            isMin1440p: '(min-width: 1441px)',
+            isTablet: '(min-width: 768px) and (max-width: 952px)',
+            isMobile: '(max-width: 952px)',
+        }, (context) => {
+            // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+            let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+            if (isMin1440p) {
+                gsap.to(smoother, {
+                    scrollTop: smoother.offset(".bigtext", "top-=320 top"),
+                    duration: 1,
+                    ease: "inOut",
+                    markers: true,
+                });
+            } else {
+                gsap.to(smoother, {
+                    scrollTop: smoother.offset(".bigtext", "top-=256 top"),
+                    duration: 1,
+                    ease: "inOut",
+                });
+            }
+            return () => {
+                // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+                // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+            }
         });
     });
 });
