@@ -1043,8 +1043,20 @@ service_button.addEventListener("click", (e) => {
     });
 });
 
+//---------------------Mobile menu_________
+const burger = document.querySelector(".nav__first__burger");
+const nav_menu = document.querySelector(".nav__menu");
+//const burgerItems = document.querySelectorAll(".nav__menu__burger");
+let toggle = false;
+burger.addEventListener("click", showMenu);
 
-
+function showMenu(){
+    burger.classList.toggle("nav__first__burger-active");
+    smoothWrap.classList.toggle("smooth-wrapper-nav-active");
+    nav_menu.classList.toggle("nav__menu-active");
+    toggle = !toggle;
+    smoother.paused(toggle);
+}
 
 const loadTl = gsap.timeline({
     delay: 0.8,
@@ -1088,6 +1100,11 @@ const service_toggles_footer = document.querySelectorAll(".footer-service-toggle
 service_toggles_footer.forEach(element => {
     element.addEventListener("click", (event) => {
         event.preventDefault()
+        burger.classList.remove("nav__first__burger-active");
+        smoothWrap.classList.remove("smooth-wrapper-nav-active");
+        nav_menu.classList.remove("nav__menu-active");
+        toggle=false;
+        smoother.paused(toggle);
         service_boxes.forEach(element => {
             element.classList.toggle("notactive");
         });
@@ -1202,6 +1219,8 @@ mm.add({
             ease: "power1.inOut"
         }, "<");
 
+    } else if(isMobile) {
+        
     } else {
         const contentWrapTl = gsap.timeline({
             duration: 1,

@@ -24,38 +24,97 @@
 	</section>
 
 	<section class="fixed">
-		<header class="header">
-			<div class="nav__left logo">
-				<a href="./"><img src="@/../images/bg/logo.svg" alt="Ergea logo"></a>
-			</div>
-			<div id="nav_container" class="nav__middle container_nav">
-				<div class="language_switcher">
-					<button class="lang_button active">CZ</button>
-					<button class="lang_button">EN</button>
-					<div class="circle" id="lang_circle"></div>
+		<header class="header nav">
+			<div class="nav__first">
+				<div class="nav__left logo">
+					<a href="./"><img src="@/../images/bg/logo.svg" alt="Ergea logo">
+					</a>
 				</div>
-				<div class="services_nav">
-					<img src="@/../images/bg/down_button.svg" alt="Šipka dolů">
-					<div class="nav-language-wrap">
-						<p class="language_toggle">Služby</p>
-						<p class="language_toggle en_language">Services</p>
+				<div class="nav__first__burger">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="nav__menu">
+				<div class="nav__second mobileOnly">
+					<div class="nav__language-wrap">
+						<h1 class="language_toggle">Naše služby</h1>
+						<h1 class="language_toggle en_language">Our services</h1>
+					</div>
+					<a href="" rel="noopener" class="notactive footer-service-toggle">
+						<p>Sales Engineering</p>
+					</a>
+					<a href="" rel="noopener" class="footer-service-toggle">
+						<p>Resident Engineering</p>
+					</a>
+				</div>
+				<div id="nav_container" class="nav__third nav__middle container_nav">
+					<div class="mobileOnly nav__language-wrap">
+						<h1 class="language_toggle">Vybrat jazyk</h1>
+						<h1 class="language_toggle en_language">Choose language</h1>
+					</div>
+					<div class="language_switcher">
+						<button class="lang_button active">CZ</button>
+						<button class="lang_button">EN</button>
+						<div class="circle" id="lang_circle"></div>
+					</div>
+					<div class="services_nav">
+						<img src="@/../images/bg/down_button.svg" alt="Šipka dolů">
+						<div class="nav-language-wrap">
+							<p class="language_toggle">Služby</p>
+							<p class="language_toggle en_language">Services</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="nav__right cta">
-				<p class="language_toggle">Napište nám</p>
-				<p class="language_toggle en_language">Write us</p>
+				<div class="nav__right cta nav__fourth">
+					<div class="nav__language-wrap">
+						<a class="language_toggle" href="mailto:info@ergea.com" rel="noopener">
+							<p>Napište nám</p>
+						</a>
+						<a class="language_toggle en_language" href="mailto:info@ergea.com" rel="noopener">
+							<p>Write us</p>
+						</a>
+					</div>
+				</div>
+				<div class="nav__fifth mobileOnly">
+					<div class="nav__fifth__kontakt">
+						<div class="nav__language-wrap">
+							<h1 class="language_toggle">Kontaktujte nás</h1>
+							<h1 class="language_toggle en_language">Contact us</h1>
+						</div>
+						<div class="headerinfo-wrap">
+							<a href="tel:+420606050959" rel="noopener">
+								<p>+420&nbsp606&nbsp050&nbsp959</p>
+							</a>
+							<a href="mailto:info@ergea.com" rel="noopener">
+								<p>info@ergea.com</p>
+							</a>
+						</div>
+					</div>
+					<div class="nav__fifth__adress">
+						<div class="nav__language-wrap">
+							<h1 class="language_toggle">Naše sídlo</h1>
+							<h1 class="language_toggle en_language">Headquarters</h1>
+						</div>
+						<div class="headerinfo-wrap">
+							<p>Ergea&nbspEngineering,&nbsps.r.o.<br> Plaská&nbsp622/4,&nbspMalá&nbspStrana<br> 15000&nbspPraha<br> Czech&nbspRepublic</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</header>
 		<div class="service_menu_fixed">
 			<div class="service_box_fixed left service_hover">
 				<div class="text">
-					<p>Sales <span>Engineering</span></p>
+					<p>Sales
+						<span>Engineering</span>
+					</p>
 				</div>
 			</div>
 			<div class="service_box_fixed right notactive service_hover">
 				<div class="text">
-					<p>Resident <span>Engineering</span></p>
+					<p>Resident
+						<span>Engineering</span>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -436,7 +495,7 @@
 	<script type="text/js" src="js/vendor/gsap.min.js"></script>
 	<script type="text/js" src="js/ScrollSmoother.min.js"></script>
 	<script type="text/js" src="js/ScrollTrigger.min.js"></script>
-	<script src="js/scripts.js?202305033566"></script>
+	<script src="js/scripts.js?202305045976"></script>
 </body>
 
 </html>
