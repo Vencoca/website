@@ -1423,102 +1423,152 @@ button2.addEventListener( "mouseout", () => {
 } );
 
 
-const whereInTl = gsap.timeline({
-    scrollTrigger:{
-        trigger: ".reasons",
-        start: "bottom bottom",
-        endTrigger: ".where",
-        end: "top+=150 top+=80",
-        scrub: true,
+
+
+let mm3 = gsap.matchMedia();
+
+mm3.add({
+    // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+    isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+    isMin1440p: '(min-width: 1441px)',
+    isTablet: '(min-width: 768px) and (max-width: 952px)',
+    isMobile: '(max-width: 952px)',
+}, (context) => {
+    // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+    let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+    if(isMobile) {
+        const whereInTl = gsap.timeline({
+            scrollTrigger:{
+                trigger: ".reasons",
+                start: "bottom bottom",
+                endTrigger: ".where",
+                end: "top+=150 top+=80",
+                scrub: true,
+            }
+        })
+        
+        whereInTl.from(".where__circleWrap__innercircle",{
+            width: 0,
+            height: 0,
+            ease: CustomEase.create("later", "M0,0 C0.219,0.002 0.6,0 0.6,0 0.6,0 0.896,0.851 1,1"),
+            immediateRender: false,
+        }, "<")
+        
+        whereInTl.from(".where__circleWrap__circle",{
+            width: 0,
+            height: 0,
+            ease: CustomEase.create("sooner", "M0,0,C0.068,0,0.2,0,0.2,0,0.2,0,0.5,0.6,0.5,0.6,0.5,0.6,0.999,0.998,1,1"),
+            immediateRender: false,
+        }, "<")
+        
+        const wherePinTl = gsap.timeline({
+            duration: 20,
+            scrollTrigger: {
+                trigger: ".where",
+                start: "top+=150 top+=100",
+                end: "bottom top+=100", 
+                scrub: true,
+                //markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
+            }
+        })
+        
+        wherePinTl.to(".where__reveal__first",{
+            duration: 2,
+            opacity: 100,
+            y: 0,
+        },"<")
+        
+        wherePinTl.to(".where__circleWrap__circle",{
+            duration: 20,
+            width: 1020,
+            height: 1020,  
+        },"<")
+        
+        wherePinTl.to(".where__circleWrap__innercircle",{
+            duration: 20,
+            width: 1020,
+            height: 1020,  
+        },"<")
+        
+        wherePinTl.to(".where__reveal__first",{
+            duration: 4,
+        },"<")
+        
+        wherePinTl.to(".where__reveal__second",{
+            duration: 4,
+            opacity: 100,
+        },"<")
+    } else {
+        const whereInTl = gsap.timeline({
+            scrollTrigger:{
+                trigger: ".reasons",
+                start: "bottom bottom",
+                endTrigger: ".where",
+                end: "top+=150 top+=80",
+                scrub: true,
+            }
+        })
+        
+        whereInTl.from(".where__circleWrap__innercircle",{
+            width: 0,
+            height: 0,
+            ease: CustomEase.create("later", "M0,0 C0.219,0.002 0.6,0 0.6,0 0.6,0 0.896,0.851 1,1"),
+            immediateRender: false,
+        }, "<")
+        
+        whereInTl.from(".where__circleWrap__circle",{
+            width: 0,
+            height: 0,
+            ease: CustomEase.create("sooner", "M0,0,C0.068,0,0.2,0,0.2,0,0.2,0,0.5,0.6,0.5,0.6,0.5,0.6,0.999,0.998,1,1"),
+            immediateRender: false,
+        }, "<")
+        
+        const wherePinTl = gsap.timeline({
+            duration: 20,
+            scrollTrigger: {
+                trigger: ".where",
+                start: "top+=150 top+=100",
+                end: "bottom top+=100", 
+                scrub: true,
+                //markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
+            }
+        })
+        
+        wherePinTl.to(".where__reveal__first",{
+            duration: 2,
+            opacity: 100,
+            y: 0,
+        },"<")
+        
+        wherePinTl.to(".where__circleWrap__circle",{
+            duration: 20,
+            width: 3020,
+            height: 3020,  
+        },"<")
+        
+        wherePinTl.to(".where__circleWrap__innercircle",{
+            duration: 20,
+            width: 3020,
+            height: 3020,  
+        },"<")
+        
+        wherePinTl.to(".where__reveal__first",{
+            duration: 4,
+            y: -100,
+        },"<2")
+        
+        wherePinTl.to(".where__reveal__second",{
+            duration: 4,
+            y: -100,
+            opacity: 100,
+        },"<")
     }
-})
 
-whereInTl.from(".where__circleWrap__innercircle",{
-    width: 0,
-    height: 0,
-    ease: CustomEase.create("later", "M0,0 C0.219,0.002 0.6,0 0.6,0 0.6,0 0.896,0.851 1,1"),
-    immediateRender: false,
-}, "<")
-
-whereInTl.from(".where__circleWrap__circle",{
-    width: 0,
-    height: 0,
-    ease: CustomEase.create("sooner", "M0,0,C0.068,0,0.2,0,0.2,0,0.2,0,0.5,0.6,0.5,0.6,0.5,0.6,0.999,0.998,1,1"),
-    immediateRender: false,
-}, "<")
-
-const wherePinTl = gsap.timeline({
-    duration: 20,
-    scrollTrigger: {
-        trigger: ".where",
-        //pin: ".where ",
-        start: "top+=150 top+=100",
-        end: "bottom top+=100", 
-        scrub: true,
-        //markers: {startColor: "blue", endColor: "purple", fontSize: "18px", fontWeight: "bold", indent: 20} 
+    return () => {
+        // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+        // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
     }
-})
-
-wherePinTl.to(".where__reveal__first",{
-    duration: 2,
-    opacity: 100,
-    y: 0,
-},"<")
-
-wherePinTl.to(".where__circleWrap__circle",{
-    duration: 20,
-    width: 3020,
-    height: 3020,  
-},"<")
-
-wherePinTl.to(".where__circleWrap__innercircle",{
-    duration: 20,
-    width: 3020,
-    height: 3020,  
-},"<")
-
-wherePinTl.to(".where__reveal__first",{
-    duration: 4,
-    y: -100,
-},"<2")
-
-wherePinTl.to(".where__reveal__second",{
-    duration: 4,
-    y: -100,
-    opacity: 100,
-},"<")
-
-
-
-
-
-
-/*
-const whereOutTl = gsap.timeline({
-    duration: 10,
-    scrollTrigger:{
-        trigger: ".where",
-        start: "top+=1000 top+=80",
-        endTrigger: ".partners",
-        end: "top top+=80",
-        scrub: true,
-        markers: true,
-    }
-})
-
-whereOutTl.to(".where__circleWrap__circle",{
-    duration: 10,
-    width: 2420,
-    height: 3020,   
-    ease: CustomEase.create("custom", "M0,0,C0,0,0.155,0.095,0.198,0.138,0.406,0.346,1,1,1,1")
-},"<")
-
-whereOutTl.to(".where__circleWrap__innercircle",{
-    duration: 10,
-    width: 2420,
-    height: 3020,
-    ease: CustomEase.create("custom", "M0,0,C0,0,0.155,0.095,0.198,0.138,0.406,0.346,1,1,1,1")
-},"<")*/
+}); 
 
 const service_boxes = document.querySelectorAll(".service_hover")
 
