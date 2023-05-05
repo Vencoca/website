@@ -1114,6 +1114,9 @@ service_toggles_footer.forEach(element => {
         service_toggles_footer.forEach(element => {
             element.classList.toggle("notactive");
         })
+        aditional_content.forEach(element => {
+            element.classList.toggle("hidden")
+        })
         let mm = gsap.matchMedia();
         mm.add({
             // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
