@@ -1294,8 +1294,9 @@ document.getElementById('video').addEventListener("click", () => {
     let player = document.getElementById("ytplayer"); 
     player.style.opacity = 100;
     if (player.src.indexOf('autoplay=1') > -1){
+        /*
         player.src = player.src.replace('autoplay=1', '');;
-        player.style.opacity = 0;
+        player.style.opacity = 0;*/
     } else {
         let symbol = player.src.indexOf('?') > -1 ? '&' : '?';
         player.src += symbol + 'autoplay=1';
