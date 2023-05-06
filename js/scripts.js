@@ -1001,7 +1001,7 @@ let smoother = ScrollSmoother.create({
 
     content: "#smooth-content",
 
-    // normalizeScroll: true,   
+    normalizeScroll: true,   
 
     // ignoreMobileResize: true,
 
