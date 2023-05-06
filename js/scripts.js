@@ -1332,16 +1332,48 @@ document.getElementById('video').addEventListener("click", () => {
     
 });
 
-gsap.to(".video_circle",{
-    width: 1560,
-    height: 1560,
-    scrollTrigger: {
-        trigger: "#video",
-        start: "top bottom",
-        end: "top top+=200",
-        scrub: true, 
-    }
-});
+let mm5 = gsap.matchMedia();
+    mm5.add({
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMax1440p: '(min-width: 953px) and (max-width: 1440px)',
+        isMin1440p: '(min-width: 1441px)',
+        isTablet: '(min-width: 768px) and (max-width: 952px)',
+        isMobile: '(max-width: 952px)',
+    }, (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
+        if (isMobile) {
+            gsap.to(".video_circle",{
+                width: 760,
+                height: 760,
+                scrollTrigger: {
+                    trigger: "#video",
+                    start: "top+=100 bottom",
+                    end: "top top+=200",
+                    scrub: true, 
+                    markers: true,
+                }
+            });
+        } else {
+            gsap.to(".video_circle",{
+                width: 1560,
+                height: 1560,
+                scrollTrigger: {
+                    trigger: "#video",
+                    start: "top bottom",
+                    end: "top top+=200",
+                    scrub: true, 
+                }
+            });
+        }
+        return () => {
+            // optionally return a cleanup function that will be called when none of the conditions match anymore (after having matched)
+            // it'll automatically call context.revert() - do NOT do that here . Only put custom cleanup code here.
+        }
+    });
+
+
+
 
 /*
 hideNavTl.to("#smooth-wrapper",{
@@ -1412,20 +1444,6 @@ mm2.add({
 const button1 = document.getElementById("where_first_button");
 const button2 = document.getElementById("where_second_button");
 
-
-button2.addEventListener( "mouseover", () => {
-    button2.classList.add("active");
-    button1.classList.remove("active");
-} );
-
-button2.addEventListener( "mouseout", () => {
-    button1.classList.add("active");
-    button2.classList.remove("active");
-} );
-
-
-
-
 let mm3 = gsap.matchMedia();
 
 mm3.add({
@@ -1438,6 +1456,45 @@ mm3.add({
     // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
     let { isMax1440p, isMin1440p, isTablet, isMobile } = context.conditions;
     if(isMobile) {
+        const whereTl = gsap.timeline({
+            duration: 10,
+            scrollTrigger:{
+                trigger: ".where",
+                start: "top bottom",
+                endTrigger: ".where",
+                end: "bottom top+=80",
+                scrub: true,
+                //markers: true,
+            }  
+        })
+        whereTl.to(".where__circleWrap__circle",{
+            duration: 8,
+            width: 1120,
+            height: 1120,
+            ease: "power2.out"  
+        },"<1")
+        
+        whereTl.to(".where__circleWrap__innercircle",{
+            duration: 7.7,
+            width: 1130,
+            height: 1130, 
+        },"<0.3")
+
+        whereTl.to(".where__reveal__first",{
+            duration: 4,
+            opacity: 100,
+        },"<1.5")
+        
+        whereTl.to(".where__reveal__second",{
+            duration: 4,
+            opacity: 100,
+        },"<")
+        whereTl.to(".where__reveal",{
+            duration: 2,
+            y: -75,
+        },"<")
+
+        /*
         const whereInTl = gsap.timeline({
             scrollTrigger:{
                 trigger: ".reasons",
@@ -1499,7 +1556,18 @@ mm3.add({
             duration: 4,
             opacity: 100,
         },"<")
+        */
+
     } else {
+        button2.addEventListener( "mouseover", () => {
+            button2.classList.add("active");
+            button1.classList.remove("active");
+        } );
+        
+        button2.addEventListener( "mouseout", () => {
+            button1.classList.add("active");
+            button2.classList.remove("active");
+        } );
         const whereInTl = gsap.timeline({
             scrollTrigger:{
                 trigger: ".reasons",
