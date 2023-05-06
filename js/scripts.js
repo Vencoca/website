@@ -1351,7 +1351,7 @@ let mm5 = gsap.matchMedia();
                     start: "top+=100 bottom",
                     end: "top top+=200",
                     scrub: true, 
-                    markers: true,
+                    //markers: true,
                 }
             });
         } else {
