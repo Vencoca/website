@@ -1412,6 +1412,7 @@ mm2.add({
             duration: 1,
             fontSize: 80,
         },"<")
+    }else if(isMobile){
 
     } else {
         const hideNavTl = gsap.timeline({
