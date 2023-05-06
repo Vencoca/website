@@ -1001,9 +1001,9 @@ let smoother = ScrollSmoother.create({
 
     content: "#smooth-content",
 
-    //normalizeScroll: true,   
+    normalizeScroll: true,   
 
-    ignoreMobileResize: true,
+    //ignoreMobileResize: true,
 
     smooth: 0.5,               // how long (in seconds) it takes to "catch up" to the native scroll position
 
