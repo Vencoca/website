@@ -1015,6 +1015,8 @@ let smoother = ScrollSmoother.create({
 
 
 
+smoother.paused(true);
+
 
 const button = document.querySelector(".language_switcher");
 const circle = document.getElementById("lang_circle");
@@ -1061,7 +1063,8 @@ function showMenu(){
 const loadTl = gsap.timeline({
     delay: 0.8,
     duration: 1.2,
-})
+    onComplete: () => {smoother.paused(false);},
+}).pause()
 
 
 loadTl.to(".fixed",{
@@ -1095,6 +1098,7 @@ loadTl.to(".numbers",{
     //stagger: 0.1
 }, "<")
 
+window.addEventListener("load", () => {loadTl.play();})
 const service_toggles_footer = document.querySelectorAll(".footer-service-toggle")
 
 service_toggles_footer.forEach(element => {
