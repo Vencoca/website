@@ -1074,10 +1074,11 @@ function showMenu(){
     smoother.paused(toggle);
 }
 
+const vidz = document.getElementById('video');
 const loadTl = gsap.timeline({
     delay: 0.8,
     duration: 1.2,
-    onComplete: () => {smoother.paused(false);},
+    onComplete: () => {smoother.paused(false); vidz.play()},
 }).pause()
 
 
