@@ -1001,7 +1001,7 @@ let smoother = ScrollSmoother.create({
 
     content: "#smooth-content",
 
-    normalizeScroll: true,   
+    //normalizeScroll: true,   
 
     //ignoreMobileResize: true,
 
@@ -1016,6 +1016,20 @@ let smoother = ScrollSmoother.create({
 
 
 smoother.paused(true);
+
+
+
+const appHeight = () => {
+
+    let doc = document.documentElement
+
+    // alert("new heigth: " + window.innerHeight)
+
+    doc.style.setProperty('--app-height', `${window.innerHeight*1}px`)
+
+}
+
+appHeight()
 
 
 const button = document.querySelector(".language_switcher");
@@ -1465,9 +1479,9 @@ mm3.add({
             duration: 10,
             scrollTrigger:{
                 trigger: ".where",
-                start: "top bottom",
+                start: "top+=100 bottom",
                 endTrigger: ".where",
-                end: "bottom top+=80",
+                end: "bottom+=100 top+=80",
                 scrub: true,
                 //markers: true,
             }  
